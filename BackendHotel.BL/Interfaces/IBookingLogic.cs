@@ -11,5 +11,6 @@ namespace BackendHotel.BL.Interfaces
     public interface IBookingLogic
     {
         List<BookingDTO> GetBookingByUserId(int userID);
+        void RemoveBooking(int bookingID);
     }
 }

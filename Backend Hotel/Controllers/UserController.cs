@@ -38,7 +38,7 @@ namespace BackendHotel.Controllers
             try
             {
                 _userLogic.GetUserId(userDTO);
-                return Json("User login successfull!");
+                return Json(new { message = "User login successfull!", content = userDTO.IdUser });
             }
             catch(Exception exception)
             {

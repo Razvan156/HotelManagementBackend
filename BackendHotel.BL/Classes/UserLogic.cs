@@ -32,7 +32,7 @@ namespace BackendHotel.BL.Classes
             {
                 throw (new Exception("Error: Inserted email is taken!"));
             }
-            user.UserType = "client";
+            user.UserType = "Client";
             await _userRepository.Create(user);
         }
 
