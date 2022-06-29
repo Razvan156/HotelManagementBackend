@@ -19,11 +19,11 @@ namespace BackendHotel.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(string username)
+        public async Task<IActionResult> RegisterUser(string username, string email, string password)
         {
             try
             {
-                _userLogic.Register(username);
+                await _userLogic.RegisterUser(username, email, password);
                 return Json("User registered successfully!");
             }
             catch (Exception exception)

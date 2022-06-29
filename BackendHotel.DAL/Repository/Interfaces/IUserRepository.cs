@@ -10,5 +10,6 @@ namespace BackendHotel.DAL.Repository.Interfaces
     public interface IUserRepository: IBaseRepository<User>
     {
         User GetUserByUsername(string username);
+        User GetUserByEmail(string email);
     }
 }

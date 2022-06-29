@@ -12,7 +12,5 @@ namespace BackendHotel.TL.DTO
         public int IdRoomType { get; set; }
         public string ImagePath { get; set; }
         public bool Deleted { get; set; }
-
-        public virtual RoomTypeDTO IdRoomTypeNavigation { get; set; }
     }
 }

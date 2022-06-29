@@ -8,12 +8,6 @@ namespace BackendHotel.TL.DTO
 {
     public class BookingDTO
     {
-        public BookingDTO()
-        {
-            BookingRoomTypes = new HashSet<BookingRoomTypeDTO>();
-            BookingServices = new HashSet<BookingServiceDTO>();
-        }
-
         public int IdBooking { get; set; }
         public int IdUser { get; set; }
         public decimal TotalPrice { get; set; }
@@ -21,9 +15,5 @@ namespace BackendHotel.TL.DTO
         public DateTime BookingEndDate { get; set; }
         public string BookingStatus { get; set; }
         public bool Deleted { get; set; }
-
-        public virtual UserDTO IdUserNavigation { get; set; }
-        public virtual ICollection<BookingRoomTypeDTO> BookingRoomTypes { get; set; }
-        public virtual ICollection<BookingServiceDTO> BookingServices { get; set; }
     }
 }

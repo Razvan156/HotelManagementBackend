@@ -14,7 +14,5 @@ namespace BackendHotel.TL.DTO
         public DateTime PriceStartDate { get; set; }
         public DateTime? PriceEndDate { get; set; }
         public bool Deleted { get; set; }
-
-        public virtual RoomTypeDTO IdRoomTypeNavigation { get; set; }
     }
 }

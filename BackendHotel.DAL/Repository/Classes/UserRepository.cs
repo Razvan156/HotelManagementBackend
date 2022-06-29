@@ -17,5 +17,9 @@ namespace BackendHotel.DAL.Repository.Classes
         {
             return Get(u => u.Username == username).SingleOrDefault();
         }
+        public User GetUserByEmail(string email)
+        {
+            return Get(u => u.Email == email).SingleOrDefault();
+        }
     }
 }

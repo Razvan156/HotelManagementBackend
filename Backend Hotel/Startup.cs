@@ -41,8 +41,6 @@ namespace BackendHotel
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackendHotel", Version = "v1" });
             });
 
-            //services.AddSingleton<IUserRepository, UserRepository>();
-
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserLogic, UserLogic>();
 

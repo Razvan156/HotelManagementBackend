@@ -20,14 +20,19 @@ namespace BackendHotel.BL.Classes
             _mapper = mapper;
         }
 
-        public void Register(string username)
+        public async Task RegisterUser(string username, string email, string password)
         {
             User user = _userRepository.GetUserByUsername(username);
             if(user != null)
             {
                 throw (new Exception("Error: Inserted username is taken!"));
             }
-            _userRepository.Create(user);
+            user = _userRepository.GetUserByEmail(email);
+            if(user != null)
+            {
+                throw (new Exception("Error: Inserted email is taken!"));
+            }
+            await _userRepository.Create();
         }
     }
 }

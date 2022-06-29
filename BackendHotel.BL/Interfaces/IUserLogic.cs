@@ -9,6 +9,6 @@ namespace BackendHotel.BL.Interfaces
 {
     public interface IUserLogic
     {
-        void Register(string username);
+        Task RegisterUser(string username, string email, string password);
     }
 }
