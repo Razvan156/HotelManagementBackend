@@ -39,7 +39,8 @@ namespace BackendHotel.BL.Classes
         public int GetUserId(UserDTO userDTO)
         {
             User user = _mapper.Map<User>(userDTO);
-            if(_userRepository.GetUserId(user).Equals(null))
+            user.IdUser = _userRepository.GetUserId(user);
+            if (user.IdUser == -1)
             {
                 throw new Exception("Error: The user does not exist!");
             }
