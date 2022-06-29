@@ -12,16 +12,16 @@ namespace BackendHotel.BL.Classes.Helper
     {
         public AutoMapperProfile()
         {
-            CreateMap<Booking, BookingDTO>();
-            CreateMap<BookingRoomType, BookingRoomTypeDTO>();
-            CreateMap<BookingService, BookingServiceDTO>();
-            CreateMap<Feature, FeatureDTO>();
-            CreateMap<Image, ImageDTO>();
-            CreateMap<Price, PriceDTO>();
-            CreateMap<RoomTypeFeature, RoomTypeFeatureDTO>();
-            CreateMap<RoomType, RoomTypeDTO>();
-            CreateMap<Service, ServiceDTO>();
-            CreateMap<User, UserDTO>();
+            CreateMap<Booking, BookingDTO>().ReverseMap();
+            CreateMap<BookingRoomType, BookingRoomTypeDTO>().ReverseMap();
+            CreateMap<BookingService, BookingServiceDTO>().ReverseMap();
+            CreateMap<Feature, FeatureDTO>().ReverseMap();
+            CreateMap<Image, ImageDTO>().ReverseMap();
+            CreateMap<Price, PriceDTO>().ReverseMap();
+            CreateMap<RoomTypeFeature, RoomTypeFeatureDTO>().ReverseMap();
+            CreateMap<RoomType, RoomTypeDTO>().ReverseMap();
+            CreateMap<Service, ServiceDTO>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }
