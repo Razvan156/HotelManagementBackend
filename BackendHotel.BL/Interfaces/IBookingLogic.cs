@@ -1,4 +1,5 @@
 ﻿using BackendHotel.DAL.Entities;
+using BackendHotel.TL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace BackendHotel.BL.Interfaces
 {
     public interface IBookingLogic
     {
-
+        List<BookingDTO> GetBookingByUserId(int userID);
     }
 }

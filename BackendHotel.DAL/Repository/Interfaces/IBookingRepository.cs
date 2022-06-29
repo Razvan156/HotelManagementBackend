@@ -10,7 +10,7 @@ namespace BackendHotel.DAL.Repository.Interfaces
 {
     public interface IBookingRepository: IBaseRepository<Booking>
     {
-        List<BookingDTO> GetBookingsByUserId(int userID);
+        List<Booking> GetBookingsByUserId(int userID);
 
     }
 }

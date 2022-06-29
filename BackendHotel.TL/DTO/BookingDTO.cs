@@ -15,5 +15,6 @@ namespace BackendHotel.TL.DTO
         public DateTime BookingEndDate { get; set; }
         public string BookingStatus { get; set; }
         public bool Deleted { get; set; }
+        public int TotalRoomCount { get; set; }
     }
 }

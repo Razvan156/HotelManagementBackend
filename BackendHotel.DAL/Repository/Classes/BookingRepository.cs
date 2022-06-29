@@ -12,16 +12,13 @@ namespace BackendHotel.DAL.Repository.Classes
 {
     public class BookingRepository: BaseRepository<Booking>, IBookingRepository
     {
-        public readonly IMapper _mapper;
-
-        public BookingRepository(HotelDBContext dbContext, IMapper mapper): base(dbContext)
+        public BookingRepository(HotelDBContext dbContext): base(dbContext)
         {
-            _mapper = mapper;
         }
 
-        public List<BookingDTO> GetBookingsByUserId(int userID)
+        public List<Booking> GetBookingsByUserId(int userID)
         {
-            return _mapper.Map<List<BookingDTO>>(Get(b => b.IdUser == userID));
+            return dbContext.Bookings.Where(b=>b.IdUser == userID).ToList();
         }
     }
 }

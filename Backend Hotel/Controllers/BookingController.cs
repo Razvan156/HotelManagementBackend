@@ -13,17 +13,17 @@ namespace BackendHotel.Controllers
     [Route("[controller]")]
     public class BookingController : Controller
     {
-        public IBookingRepository _bookingRepository { get; set; }
+        public IBookingLogic _bookingLogic { get; set; }
 
-        public BookingController(IBookingRepository bookingRepository)
+        public BookingController(IBookingLogic bookingLogic)
         {
-            _bookingRepository = bookingRepository;
+            _bookingLogic = bookingLogic;
         }
 
         [HttpGet]
         public IActionResult GetBookingsByUserId(int userID)
         {
-            List<BookingDTO> bookings = _bookingRepository.GetBookingsByUserId(userID);
+            List<BookingDTO> bookings = _bookingLogic.GetBookingByUserId(userID);
             if(bookings.Count == 0)
             {
                 return Json("You have no reservations...");
