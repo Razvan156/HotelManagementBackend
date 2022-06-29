@@ -32,7 +32,7 @@ namespace BackendHotel.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost("login")]
         public IActionResult LoginUser(UserDTO userDTO)
         {
             try
