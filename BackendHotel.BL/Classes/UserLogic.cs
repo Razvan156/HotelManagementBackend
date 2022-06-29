@@ -35,5 +35,15 @@ namespace BackendHotel.BL.Classes
             user.UserType = "client";
             await _userRepository.Create(user);
         }
+
+        public int GetUserId(UserDTO userDTO)
+        {
+            User user = _mapper.Map<User>(userDTO);
+            if(_userRepository.GetUserId(user).Equals(null))
+            {
+                throw new Exception("Error: The user does not exist!");
+            }
+            return user.IdUser;
+        }
     }
 }

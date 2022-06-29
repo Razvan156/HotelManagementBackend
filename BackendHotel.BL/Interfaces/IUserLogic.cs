@@ -11,5 +11,6 @@ namespace BackendHotel.BL.Interfaces
     public interface IUserLogic
     {
         Task RegisterUser(UserDTO userDTO);
+        int GetUserId(UserDTO userDTO);
     }
 }

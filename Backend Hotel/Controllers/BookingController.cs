@@ -23,7 +23,7 @@ namespace BackendHotel.Controllers
         [HttpGet]
         public IActionResult GetBookingsByUserId(int userID)
         {
-            List<Booking> bookings = _bookingRepository.GetBookingsByUserId(userID);
+            List<BookingDTO> bookings = _bookingRepository.GetBookingsByUserId(userID);
             if(bookings.Count == 0)
             {
                 return Json("You have no reservations...");

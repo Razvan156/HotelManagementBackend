@@ -31,6 +31,20 @@ namespace BackendHotel.Controllers
                 return Json(exception.Message);
             }
         }
+
+        [HttpGet]
+        public IActionResult LoginUser(UserDTO userDTO)
+        {
+            try
+            {
+                _userLogic.GetUserId(userDTO);
+                return Json("User login successfull!");
+            }
+            catch(Exception exception)
+            {
+                return Json(exception.Message);
+            }
+        }
     }
 }
 

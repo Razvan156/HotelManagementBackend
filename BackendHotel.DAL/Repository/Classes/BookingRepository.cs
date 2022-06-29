@@ -1,5 +1,7 @@
-﻿using BackendHotel.DAL.Entities;
+﻿using AutoMapper;
+using BackendHotel.DAL.Entities;
 using BackendHotel.DAL.Repository.Interfaces;
+using BackendHotel.TL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +12,16 @@ namespace BackendHotel.DAL.Repository.Classes
 {
     public class BookingRepository: BaseRepository<Booking>, IBookingRepository
     {
-        public BookingRepository(HotelDBContext dbContext) : base(dbContext)
-        {
+        public readonly IMapper _mapper;
 
+        public BookingRepository(HotelDBContext dbContext, IMapper mapper): base(dbContext)
+        {
+            _mapper = mapper;
         }
 
-        public List<Booking> GetBookingsByUserId(int userID)
+        public List<BookingDTO> GetBookingsByUserId(int userID)
         {
-            return Get(b => b.IdUser == userID).ToList();
+            return _mapper.Map<List<BookingDTO>>(Get(b => b.IdUser == userID));
         }
     }
 }

@@ -11,5 +11,6 @@ namespace BackendHotel.DAL.Repository.Interfaces
     {
         User GetUserByUsername(string username);
         User GetUserByEmail(string email);
+        public int GetUserId(User user);
     }
 }

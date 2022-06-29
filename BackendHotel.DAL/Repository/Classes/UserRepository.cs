@@ -21,5 +21,9 @@ namespace BackendHotel.DAL.Repository.Classes
         {
             return Get(u => u.Email == email).SingleOrDefault();
         }
+        public int GetUserId(User user)
+        {
+            return Get(u => u.Username == user.Username && u.Email == user.Email && u.Password == user.Password).FirstOrDefault().IdUser;
+        }
     }
 }
