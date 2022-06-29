@@ -7,8 +7,8 @@ using BackendHotel.BL.Interfaces;
 
 namespace BackendHotel.Controllers
 {
+    [Route("api/User")]
     [ApiController]
-    [Route("[controller]")]
     public class UserController : Controller
     {
         public IUserLogic _userLogic { get; set; }
@@ -18,7 +18,7 @@ namespace BackendHotel.Controllers
             _userLogic = userLogic;
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> RegisterUser(UserDTO userDTO)
         {
             try
@@ -28,7 +28,7 @@ namespace BackendHotel.Controllers
             }
             catch (Exception exception)
             {
-                return Json(exception.Message);
+                    return Json(exception.Message);
             }
         }
 
