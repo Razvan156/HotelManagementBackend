@@ -42,6 +42,8 @@ namespace BackendHotel
             });
 
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IBookingRepository, BookingRepository>();
+
             services.AddTransient<IUserLogic, UserLogic>();
 
             services.AddAutoMapper(typeof(AutoMapperProfile));

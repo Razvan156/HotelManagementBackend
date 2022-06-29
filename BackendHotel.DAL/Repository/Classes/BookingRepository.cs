@@ -14,5 +14,10 @@ namespace BackendHotel.DAL.Repository.Classes
         {
 
         }
+
+        public List<Booking> GetBookingsByUserId(int userID)
+        {
+            return Get(b => b.IdUser == userID).ToList();
+        }
     }
 }

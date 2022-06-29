@@ -2,6 +2,7 @@
 using BackendHotel.BL.Interfaces;
 using BackendHotel.DAL.Entities;
 using BackendHotel.DAL.Repository.Interfaces;
+using BackendHotel.TL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,19 +21,18 @@ namespace BackendHotel.BL.Classes
             _mapper = mapper;
         }
 
-        public async Task RegisterUser(string username, string email, string password)
+        public async Task RegisterUser(UserDTO userDTO)
         {
-            User user = _userRepository.GetUserByUsername(username);
-            if(user != null)
+            User user = _mapper.Map<User>(userDTO);
+            if (_userRepository.GetUserByUsername(user.Username) != null)
             {
                 throw (new Exception("Error: Inserted username is taken!"));
             }
-            user = _userRepository.GetUserByEmail(email);
-            if(user != null)
+            if(_userRepository.GetUserByEmail(user.Email) != null)
             {
                 throw (new Exception("Error: Inserted email is taken!"));
             }
-            await _userRepository.Create();
+            await _userRepository.Create(user);
         }
     }
 }
