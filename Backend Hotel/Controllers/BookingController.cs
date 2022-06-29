@@ -21,7 +21,7 @@ namespace BackendHotel.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetBookingsByUserId(int userID)
+        public IActionResult GetBookingsByUserId(int userID)
         {
             List<Booking> bookings = _bookingRepository.GetBookingsByUserId(userID);
             if(bookings.Count == 0)
