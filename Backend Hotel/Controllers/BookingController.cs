@@ -30,6 +30,20 @@ namespace BackendHotel.Controllers
             }
             return Json(bookings);
         }
+
+        [HttpDelete]
+        public IActionResult RemoveBooking(int bookingID)
+        {
+            try
+            {
+                _bookingLogic.RemoveBooking(bookingID);
+            }
+            catch(Exception exception)
+            {
+                return Json(exception.Message);
+            }
+            return Json("The booking has been deleted!");
+        }
     }
 }
 

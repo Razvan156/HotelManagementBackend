@@ -38,5 +38,13 @@ namespace BackendHotel.BL.Classes.Helper
             }
             return bookingList;
         }
+        public void RemoveBooking(int bookingID)
+        {
+            bool removalSuccess = _bookingRepository.RemoveBooking(bookingID);
+            if(!removalSuccess)
+            {
+                throw new Exception("Error: The booking does not exist!");
+            }
+        }
     }
 }

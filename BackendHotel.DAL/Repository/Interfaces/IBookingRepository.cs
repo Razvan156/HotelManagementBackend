@@ -11,6 +11,6 @@ namespace BackendHotel.DAL.Repository.Interfaces
     public interface IBookingRepository: IBaseRepository<Booking>
     {
         List<Booking> GetBookingsByUserId(int userID);
-
+        bool RemoveBooking(int bookingID);
     }
 }

@@ -20,5 +20,15 @@ namespace BackendHotel.DAL.Repository.Classes
         {
             return dbContext.Bookings.Where(b=>b.IdUser == userID).ToList();
         }
+        public bool RemoveBooking(int bookingID)
+        {
+            Booking booking= dbContext.Bookings.Where(b => b.IdBooking == bookingID).SingleOrDefault();
+            if(booking!=null)
+            {
+                booking.Deleted = true;
+                return true;
+            }
+            return false;
+        }
     }
 }
