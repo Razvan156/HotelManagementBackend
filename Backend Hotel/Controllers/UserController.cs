@@ -7,7 +7,7 @@ using BackendHotel.BL.Interfaces;
 
 namespace BackendHotel.Controllers
 {
-    [Route("api/User")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : Controller
     {

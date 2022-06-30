@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace BackendHotel.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[api/booking]")]
     public class BookingController : Controller
     {
         public IBookingLogic _bookingLogic { get; set; }
@@ -20,7 +20,7 @@ namespace BackendHotel.Controllers
             _bookingLogic = bookingLogic;
         }
 
-        [HttpGet]
+        [HttpPost("bookings")]
         public IActionResult GetBookingsByUserId(int userID)
         {
             List<BookingDTO> bookings = _bookingLogic.GetBookingByUserId(userID);
