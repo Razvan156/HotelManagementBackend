@@ -24,11 +24,11 @@ namespace BackendHotel.Controllers
             try
             {
                 await _userLogic.RegisterUser(userDTO);
-                return Json("User registered successfully!");
+                return Ok("User registered successfully!");
             }
             catch (Exception exception)
             {
-                    return Json(exception.Message);
+                return NotFound(exception.Message);
             }
         }
 
@@ -37,12 +37,12 @@ namespace BackendHotel.Controllers
         {
             try
             {
-                _userLogic.GetUserId(userDTO);
-                return Json(new { message = "User login successfull!", content = userDTO.IdUser });
+                int userId = _userLogic.GetUserId(userDTO);
+                return Ok(new { message = "User login successfull!", content = userId });
             }
             catch(Exception exception)
             {
-                return Json(exception.Message);
+                return NotFound(exception.Message);
             }
         }
     }

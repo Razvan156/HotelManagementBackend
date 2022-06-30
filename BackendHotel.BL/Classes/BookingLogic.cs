@@ -36,6 +36,10 @@ namespace BackendHotel.BL.Classes.Helper
                 }
                 
             }
+            /*if (bookingList.Count == 0)
+            {
+                throw new Exception("You have no reservations...");
+            }*/
             return bookingList;
         }
         public void RemoveBooking(int bookingID)

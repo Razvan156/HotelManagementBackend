@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace BackendHotel.Controllers
 {
     [ApiController]
-    [Route("[api/booking]")]
+    [Route("api/booking")]
     public class BookingController : Controller
     {
         public IBookingLogic _bookingLogic { get; set; }
@@ -23,12 +23,15 @@ namespace BackendHotel.Controllers
         [HttpPost("bookings")]
         public IActionResult GetBookingsByUserId(int userID)
         {
-            List<BookingDTO> bookings = _bookingLogic.GetBookingByUserId(userID);
-            if(bookings.Count == 0)
+            try
             {
-                return Json("You have no reservations...");
+                List<BookingDTO> bookings = _bookingLogic.GetBookingByUserId(userID);
+                return Ok(bookings);
             }
-            return Json(bookings);
+            catch(Exception exception)
+            {
+                return NotFound(exception.Message);
+            }
         }
 
         [HttpDelete]
@@ -37,12 +40,12 @@ namespace BackendHotel.Controllers
             try
             {
                 _bookingLogic.RemoveBooking(bookingID);
+                return Ok("The booking has been deleted!");
             }
             catch(Exception exception)
             {
-                return Json(exception.Message);
+                return NotFound(exception.Message);
             }
-            return Json("The booking has been deleted!");
         }
     }
 }
